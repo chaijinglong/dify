@@ -40,6 +40,9 @@ services:
       - "${EXPOSE_REDIS_PORT:-6379}:6379"
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
+    networks:
+      - ssrf_proxy_network
+      - default 
 
   # The DifySandbox
   sandbox:
